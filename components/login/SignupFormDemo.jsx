@@ -5,20 +5,15 @@ import {cn} from "@/lib/utils";
 import {IconArrowBack} from '@tabler/icons-react';
 import Link from "next/link";
 import useLogin from "@/hooks/login";
-import {useRouter} from "next/navigation";
 
 export function SignupFormDemo() {
 
   const {login} = useLogin()
-  const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const form = new FormData(e.currentTarget)
-    const user = await login(form.get('tel'), form.get('pass'))
-    if (user) {
-      router.push('/')
-    }
+    await login(form.get('tel'), form.get('pass'))
   }
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 bg-transparent">

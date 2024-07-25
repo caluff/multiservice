@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from "next/link"
+import ButtonAuth from "@/components/hero/Header/ButtonAuth";
 
-const Header = ({user}) => {
-
+const Header = () => {
   return (
     <div
       className={'sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent'}>
@@ -14,14 +14,7 @@ const Header = ({user}) => {
             </Link>
             <div className={'flex space-x-4 items-center '}>
               <nav className={'text-sm leading-6 font-semibold text-slate-900 dark:text-slate-300'}>
-                <ul className={'flex space-x-6'}>
-                  <li>
-                    {user
-                      ? <Link href={'/auth/logout'} className={'link-button'}>Sign out</Link>
-                      : <Link href={'/auth/login'} className={'link-button'}>Login</Link>
-                    }
-                  </li>
-                </ul>
+                <ButtonAuth/>
               </nav>
               <div className={'border-l border-slate-200 pl-4 dark:border-slate-800 flex items-center space-x-2'}>
               </div>
