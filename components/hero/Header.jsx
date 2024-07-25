@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from "next/link"
-import {IconSettings} from '@tabler/icons-react';
 
-const Header = () => {
+const Header = ({user}) => {
+
   return (
     <div
       className={'sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent'}>
@@ -16,7 +16,10 @@ const Header = () => {
               <nav className={'text-sm leading-6 font-semibold text-slate-900 dark:text-slate-300'}>
                 <ul className={'flex space-x-6'}>
                   <li>
-                    <Link href={'/login'}><IconSettings/></Link>
+                    {user
+                      ? <Link href={'/auth/logout'} className={'link-button'}>Sign out</Link>
+                      : <Link href={'/auth/login'} className={'link-button'}>Login</Link>
+                    }
                   </li>
                 </ul>
               </nav>

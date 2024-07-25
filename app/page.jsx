@@ -10,7 +10,7 @@ export default function Home() {
   const user = cookie ? JSON.parse(cookie.value) : null
   return (
     <main className="max-w-7xl mx-auto">
-      <Header/>
+      <Header user={user}/>
       <div className={'pt-16'}>
         <div className={'relative mx-auto flex max-w-2xl flex-col items-center'}>
           <h1 className={'text-center text-3xl font-medium text-gray-900 dark:text-gray-50 sm:text-6xl'}>Welcome to
